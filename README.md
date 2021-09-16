@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include <cs50.h>
 
+//起始n個駱駝
+//最後i個駱駝
+//數量變化：每年增加n/3隻 減少n/4隻
+//n需大於等於9 i需大於等於n
+//求需幾年到達終點值
+
 int main(void){
  int n;
  do
