@@ -1,0 +1,92 @@
+#include<stdio.h>
+#include<cs50.h>
+
+int main(void)
+{
+    long R;
+    do{
+        R = get_long("Number:");
+      }
+    while( R<0 );
+    //演算法
+    int KK=1;
+    int A;
+    int T;
+    int G;
+    int M=0;
+    long Y=R;
+
+    while(Y>0)
+    {
+        KK = KK%2;
+        A = Y%10;
+        Y = Y/10;
+        if(KK==0)
+        {
+             int J=(2*A);
+             while(A>=5)
+             {
+               G = J%10;
+               J = J/10;
+               M=M+1;
+               T=T+G;
+               if(M==2)
+               {
+                   break;
+               }
+             }
+             if((2*A)<10)
+             {
+                 T=T+A*2;
+             }
+        }
+        if(KK==1)
+        {
+           T=T+A;
+        }
+        KK = KK+1;
+    }
+
+    if( T%10 > 0 )
+    {
+        printf("Invalid");
+    }
+
+    long S=R;
+    long U=S;
+    int count=0;
+    while(S>0 && (T%10==0))
+    {
+        while(U>100)
+         {
+              U=U/10;
+              if(U<100)
+              {
+               U=U%100;
+              }
+         }
+         S = S/10;
+         count=count+1;
+
+        if(count==15 && (U==37 | U==34))
+         {
+            printf("AMEX");
+         }
+
+        if(count==16 && (U>=51 && U<=55))
+         {
+            printf("MasterCard");
+         }
+
+        if(count==13 && (U>=40 && U<=49))
+         {
+            printf("VISA");
+            break;
+         }
+
+        if(count==16 && (U>=40 && U<=49))
+        {
+            printf("VISA");
+        }
+    }          
+}
